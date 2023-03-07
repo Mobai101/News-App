@@ -26,8 +26,8 @@ if (currentPage == 1) previousBtn.classList.add("hidden");
 
 // Async function to fetch news and render news
 async function renderNews(category, pageSize, page, country) {
+  if (!currentUser.username) return;
   try {
-    if (!currentUser.username) return;
     // fetch and get data from API
     const response =
       await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pageSize=${pageSize}&page=${page}&apiKey=cc5b57fe2d6f4175b0a50990b81cb245
